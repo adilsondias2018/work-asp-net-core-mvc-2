@@ -1,14 +1,23 @@
-﻿@model IEnumerable<SalesWebMvc01.Models.Seller>
+﻿<!--A declaração do objeto MOdel que corresponde ao objeto de argumento passado pelo argumento view 
+    O IEnumerable aceitas vários tipos de list arrays e etc..
+    
+ -->
+@model IEnumerable<SalesWebMvc01.Models.Seller>
 @{
     ViewData["Title"] = "Sellers";
 }
 
 <h2>@ViewData["Title"]</h2>
 
+<p>
+    <a asp-action="Create" class="btn btn-default">Create New</a> 
+</p>
+
 <table class="table table-striped table-hover" >
     <thead>
         <tr class=" success">
             <th>
+                <!-- Display para exibir o nome do campo perceba que é DisplayNameFor-->
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
@@ -30,6 +39,9 @@
         @foreach(var item in Model)
         {
         <tr>
+            <!-- Display para exibir o conteúdo do campo perceba que é DisplayFor aqui não existe o Name.
+             Perceba que temo o apelido ITEM no for e também temos outros apelido o modelItem nas tags.
+             -->
             <td>@Html.DisplayFor(modelItem => item.Name)</td>
             <td>@Html.DisplayFor(modelItem => item.Email)</td>
             <td>@Html.DisplayFor(modelItem => item.BirthDate)</td>
